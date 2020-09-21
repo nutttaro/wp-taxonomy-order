@@ -142,7 +142,7 @@ class WP_Taxonomy_Order_Setting
 					$is_checked = in_array($taxonomy->name, $taxonomies);
 					printf(
 						'<p><label for="wp-taxonomy-order-%s"><input name="wp_taxonomy_order_settings[taxonomies][]" type="checkbox" id="wp-taxonomy-order-%s" value="%s" %s> %s</label></p>',
-						$taxonomy->name, $taxonomy->name, $taxonomy->name, checked($is_checked, true, false), $taxonomy->label
+						$taxonomy->name, $taxonomy->name, $taxonomy->name, checked($is_checked, true, false), $taxonomy->label . ' (' . $taxonomy->name . ')'
 					);
 				}
 			}

@@ -1,6 +1,6 @@
 === WP Taxonomy Order ===
 Contributors: nutttaro
-Donate link: https://www.paypal.com/paypalme/nutttaro
+Donate link: https://www.buymeacoffee.com/nutttaro
 Tags: taxonomy, order
 Requires at least: 4.7
 Tested up to: 5.5
@@ -44,3 +44,11 @@ Actually WooCommerce already have the ordering by himself.
 1. Screenshot of the menu page for WP Taxonomy Order Setting page.
 You can select taxonomy for enable order feature
 1. Drag and Drop for order taxonomy. It easy!
+
+== Changelog ==
+
+= 1.0.1 =
+* Add taxonomy slug to setting
+
+= 1.0.0 =
+* Initial Release
