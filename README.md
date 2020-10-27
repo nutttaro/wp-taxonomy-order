@@ -8,7 +8,7 @@
 * License: GPLv2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Order Taxonomy and child with a Drag and Drop Sortable.
+WP Taxonomy Order is a plugin allows for the ordering of taxonomy or category for WordPress.
 
 ## Description
 
