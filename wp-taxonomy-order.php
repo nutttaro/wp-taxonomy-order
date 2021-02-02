@@ -3,7 +3,7 @@
  * Plugin Name:       WP Taxonomy Order
  * Plugin URI:        https://wordpress.org/plugins/wp-taxonomy-order/
  * Description:       Order Taxonomy and child with a Drag and Drop Sortable. Compatible with WPML.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 4.7
  * Requires PHP:      7.0
  * Author:            NuttTaro
