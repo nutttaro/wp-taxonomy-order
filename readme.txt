@@ -47,6 +47,9 @@ You can select taxonomy for enable order feature
 
 == Changelog ==
 
+= 1.0.2 =
+* Add buy me a coffee
+
 = 1.0.1 =
 * Add taxonomy slug to setting
 
