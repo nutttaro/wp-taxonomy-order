@@ -3,9 +3,10 @@
  * Plugin Name:       WP Taxonomy Order
  * Plugin URI:        https://wordpress.org/plugins/wp-taxonomy-order/
  * Description:       Order Taxonomy and child with a Drag and Drop Sortable. Compatible with WPML.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Requires at least: 4.7
  * Requires PHP:      7.0
+ * Tested up to:	  5.8.1
  * Author:            NuttTaro
  * Author URI:        https://nutttaro.com
  * License:           GPL v2 or later
@@ -18,7 +19,7 @@
 define('WPTO_PATH', plugin_dir_path(__FILE__));
 define('WPTO_BASENAME', plugin_basename(__FILE__));
 define('WPTO_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('WPTO_VERSION', '1.0.1');
+define('WPTO_VERSION', '1.0.3');
 
 /**
  * Class WP_Taxonomy_Order
