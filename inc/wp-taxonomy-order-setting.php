@@ -133,11 +133,17 @@ class WP_Taxonomy_Order_Setting
 
 	}
 
+	/**
+	 * Enable field
+	 */
 	public function enable_field()
 	{
 		echo '<label for="wp-taxonomy-order-enable"><input type="checkbox" id="wp-taxonomy-order-enable" name="wp_taxonomy_order_settings[enable]" value="1" ' . checked($this->options['enable'], 1, false) . ' > ' . __('Enable', 'wp-term-order') . '</label>';
 	}
 
+	/**
+	 * Taxonomies Field
+	 */
 	public function taxonomies_field()
 	{
 		$taxonomies = $this->options['taxonomies'] ?? [];
@@ -156,6 +162,9 @@ class WP_Taxonomy_Order_Setting
 		}
 	}
 
+	/**
+	 * Donate
+	 */
     public function donate_settings_section()
     {
         ?>

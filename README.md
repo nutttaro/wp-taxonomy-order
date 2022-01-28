@@ -8,19 +8,19 @@
 * License: GPLv2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WP Taxonomy Order is a plugin allows for the ordering of taxonomy or category for WordPress.
+WP Taxonomy Order is a plugin that allows for the ordering of taxonomy or category for WordPress.
 
 ## Description
 
-WP Taxonomy Order is a plugin allows for the ordering of taxonomy or category for WordPress.
+WP Taxonomy Order is a plugin that allows for the ordering of taxonomy or category for WordPress.
 
 __Features:__
 
 * Easy for ordering taxonomy by Drag and Drop.
 * Support custom taxonomy.
-* Child taxonomy support the ordering also.
-* Can choose enable order for each taxonomies.
-* The plugin is lightweight and no custom coding.
+* Child taxonomy supports the ordering also.
+* Can choose to enable order for each taxonomy.
+* The plugin is lightweight and has no custom coding.
 * Compatible with WPML.
 
 ## Installation
@@ -30,9 +30,9 @@ __Features:__
 
 ## Frequently Asked Questions
 
-__How many terms support ?__
+__How many terms support it?__
 
-Should be max 100 terms for easy management the ordering
+Should be maxed 100 terms for easy management of the ordering
 
 __WooCommerce support ?__
 
