@@ -60,6 +60,8 @@ class WP_Taxonomy_Order_Setting
 				?>
 			</form>
 		</div>
+		<hr>
+		<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Tip Me on Ko-fi', '#29abe0', 'J3J6HM43W');kofiwidget2.draw();</script>
 		<?php
 	}
 
@@ -96,13 +98,6 @@ class WP_Taxonomy_Order_Setting
 			'wp-taxonomy-order-settings-page', // Page
 			'wp_taxonomy_order_settings_section'
 		);
-
-        add_settings_section(
-            'wp-taxonomy-donate', // ID
-            '', // Title
-            [$this, 'donate_settings_section'], // Callback
-            'wp-taxonomy-order-settings-page' // Page
-        );
 	}
 
 	/**
@@ -161,17 +156,5 @@ class WP_Taxonomy_Order_Setting
 			}
 		}
 	}
-
-	/**
-	 * Donate
-	 */
-    public function donate_settings_section()
-    {
-        ?>
-        <div class="wpfp-donate" style="position: fixed;right: 1rem;bottom: 1rem;z-index: 20;">
-            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="nutttaro" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000" data-font-color="#000" data-coffee-color="#fff" ></script>
-        </div>
-        <?php
-    }
 
 }

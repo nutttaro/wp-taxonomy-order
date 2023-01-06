@@ -3,7 +3,7 @@ Contributors: nutttaro
 Donate link: https://www.buymeacoffee.com/nutttaro
 Tags: taxonomy, order
 Requires at least: 4.7
-Tested up to: 5.9
+Tested up to: 6.1.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +46,10 @@ You can select taxonomy for enable order feature
 1. Drag and Drop for order taxonomy. It easy!
 
 == Changelog ==
+
+= 1.0.5 =
+* Tested up to WordPress 6.1.1
+* Add Tip me on Ko-fi
 
 = 1.0.4 =
 * Tested up to WordPress 5.9
