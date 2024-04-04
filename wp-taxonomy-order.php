@@ -5,8 +5,8 @@
  * Description:       Order Taxonomy and child with a Drag and Drop Sortable. Compatible with WPML.
  * Version:           1.0.5
  * Requires at least: 4.7
- * Requires PHP:      7.0
- * Tested up to:	  5.9
+ * Requires PHP:      7.4
+ * Tested up to:	  6.5
  * Author:            NuttTaro
  * Author URI:        https://nutttaro.com
  * License:           GPL v2 or later
