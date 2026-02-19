@@ -110,10 +110,11 @@ jQuery( function( $ ) {
 					action: 'wpto_term_ordering',
 					id: termid,
 					nextid: nexttermid,
-					thetaxonomy: wpto_term_ordering_params.taxonomy
+					thetaxonomy: wpto_term_ordering_params.taxonomy,
+					security: wpto_term_ordering_params.nonce
 				},
 				function(response) {
-					if ( response === 'children' ) {
+					if ( response.success && response.data && response.data.message === 'children' ) {
 						window.location.reload();
 					} else {
 						ui.item.find( '.check-column input' ).show();

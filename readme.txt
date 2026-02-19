@@ -3,7 +3,8 @@ Contributors: nutttaro
 Donate link: https://www.buymeacoffee.com/nutttaro
 Tags: taxonomy, order
 Requires at least: 4.7
-Tested up to: 6.5
+Tested up to: 6.9
+Stable tag: 1.0.6
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +47,19 @@ You can select taxonomy for enable order feature
 1. Drag and Drop for order taxonomy. It easy!
 
 == Changelog ==
+
+= 1.0.6 =
+* Tested up to WordPress 6.9
+* Security: Added nonce verification for AJAX requests
+* Security: Improved capability checks (changed from 'edit_pages' to 'manage_categories')
+* Security: Enhanced input sanitization and validation
+* Security: Added direct file access protection
+* Fixed: Text domain inconsistency (now 'wp-taxonomy-order' throughout)
+* Fixed: Deprecated get_terms() syntax - now using array parameters
+* Fixed: Proper escaping for all output
+* Improved: Better error handling and WP_Error checks
+* Improved: Code formatting and WordPress coding standards compliance
+* Improved: PHPDoc comments for better documentation
 
 = 1.0.5 =
 * Tested up to WordPress 6.1.1
