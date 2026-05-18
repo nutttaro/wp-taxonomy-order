@@ -4,7 +4,7 @@
 * Tags: taxonomy, order
 * Requires at least: 4.7
 * Tested up to: 6.9
-* Stable tag: 1.0.6
+* Stable tag: 1.1.0
 * Requires PHP: 7.4
 * License: GPLv2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -42,6 +42,15 @@ Actually WooCommerce already have the ordering by himself.
 
 
 ## Changelog
+
+###### 1.1.0
+* New: "Reset Order" button on taxonomy list pages to clear custom ordering
+* New: REST API endpoints under `wp-taxonomy-order/v1` (`/reorder`, `/reset`)
+* New: Uninstall cleanup — removes all plugin data when deleted
+* Improved: Namespaced term meta key (`_wpto_order`) to prevent collisions with other plugins
+* Improved: Automatic migration from legacy `order` meta key on update
+* Fixed: Replaced deprecated `wpspin_light.gif` spinner with WordPress CSS spinner
+* Fixed: Translation template text domain corrected to `wp-taxonomy-order`
 
 ###### 1.0.6
 * Tested up to WordPress 6.9

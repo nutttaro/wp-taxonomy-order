@@ -59,6 +59,7 @@ class WP_Taxonomy_Order_Setting {
 		?>
 		<div class="wrap">
 			<h2><?php esc_html_e( 'Select the taxonomy for sortable.', 'wp-taxonomy-order' ); ?></h2>
+			<?php settings_errors(); ?>
 			<form method="post" action="options.php">
 				<?php
 				// This prints out all hidden setting fields.

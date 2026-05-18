@@ -101,7 +101,7 @@ jQuery( function( $ ) {
 			ui.item.find( '.check-column input' ).hide();
 			ui.item
 				.find( '.check-column' )
-				.append( '<img alt="processing" src="images/wpspin_light.gif" class="waiting" style="margin-left: 6px;" />' );
+				.append( '<span class="spinner is-active" style="float: none; margin: 0 0 0 6px;"></span>' );
 
 			// Go do the sorting stuff via ajax.
 			$.post(
@@ -118,7 +118,7 @@ jQuery( function( $ ) {
 						window.location.reload();
 					} else {
 						ui.item.find( '.check-column input' ).show();
-						ui.item.find( '.check-column' ).find( 'img' ).remove();
+						ui.item.find( '.check-column' ).find( '.spinner' ).remove();
 					}
 				}
 			);
@@ -133,6 +133,29 @@ jQuery( function( $ ) {
 				}
 			});
 		}
+	});
+
+	$( document ).on( 'click', '.wpto-reset-order', function( e ) {
+		e.preventDefault();
+
+		if ( ! window.confirm( wpto_term_ordering_params.confirm_text ) ) {
+			return;
+		}
+
+		var $button = $( this );
+		$button.prop( 'disabled', true ).after( '<span class="spinner is-active" style="float: none;"></span>' );
+
+		$.post(
+			ajaxurl,
+			{
+				action: 'wpto_reset_ordering',
+				taxonomy: wpto_term_ordering_params.taxonomy,
+				security: wpto_term_ordering_params.reset_nonce
+			},
+			function() {
+				window.location.reload();
+			}
+		);
 	});
 
 });
