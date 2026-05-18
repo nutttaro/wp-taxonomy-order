@@ -69,7 +69,7 @@ class WP_Taxonomy_Order
 		$this->allow_taxonomy = apply_filters( 'wpto_sortable_taxonomies', $this->settings['taxonomies'] );
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( ( ! empty( $_GET['taxonomy'] ) && $this->settings['enable'] && in_array( wp_unslash( $_GET['taxonomy'] ), $this->allow_taxonomy, true ) ) && ! isset( $_GET['orderby'] ) ) {
+		if ( ( ! empty( $_GET['taxonomy'] ) && $this->settings['enable'] && in_array( sanitize_text_field( wp_unslash( $_GET['taxonomy'] ) ), $this->allow_taxonomy, true ) ) && ! isset( $_GET['orderby'] ) ) {
 
 			wp_enqueue_style( 'wp-taxonomy-order-style', WPTO_PLUGIN_URL . '/assets/css/wp-taxonomy-order.min.css', array(), WPTO_VERSION );
 
@@ -77,7 +77,7 @@ class WP_Taxonomy_Order
 			wp_enqueue_script( 'wp-taxonomy-order' );
 
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$taxonomy = isset( $_GET['taxonomy'] ) ? $this->clean( wp_unslash( $_GET['taxonomy'] ) ) : '';
+			$taxonomy = isset( $_GET['taxonomy'] ) ? sanitize_text_field( wp_unslash( $_GET['taxonomy'] ) ) : '';
 
 			$wpto_term_order_params = array(
 				'taxonomy'     => $taxonomy,
@@ -540,10 +540,8 @@ function wpto_migrate_meta_key() {
 	if ( ! empty( $settings['taxonomies'] ) ) {
 		global $wpdb;
 
-		$taxonomies   = array_map( 'sanitize_text_field', $settings['taxonomies'] );
-		$placeholders = implode( ',', array_fill( 0, count( $taxonomies ), '%s' ) );
-
-		$query_args = array_merge( array( WPTO_META_KEY ), $taxonomies, array( WPTO_META_KEY ) );
+		$taxonomies = array_map( 'sanitize_text_field', $settings['taxonomies'] );
+		$args       = array_merge( array( WPTO_META_KEY ), $taxonomies, array( WPTO_META_KEY ) );
 
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$wpdb->query(
@@ -553,13 +551,13 @@ function wpto_migrate_meta_key() {
 				FROM {$wpdb->termmeta} tm
 				INNER JOIN {$wpdb->term_taxonomy} tt ON tm.term_id = tt.term_id
 				WHERE tm.meta_key = 'order'
-				AND tt.taxonomy IN ($placeholders)
+				AND tt.taxonomy IN (" . implode( ',', array_fill( 0, count( $taxonomies ), '%s' ) ) . ")
 				AND NOT EXISTS (
 					SELECT 1 FROM {$wpdb->termmeta} tm2
 					WHERE tm2.term_id = tm.term_id
 					AND tm2.meta_key = %s
 				)",
-				$query_args
+				...$args
 			)
 		);
 	}
