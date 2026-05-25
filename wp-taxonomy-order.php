@@ -3,10 +3,10 @@
  * Plugin Name:       WP Taxonomy Order
  * Plugin URI:        https://wordpress.org/plugins/wp-taxonomy-order/
  * Description:       Order Taxonomy and child with a Drag and Drop Sortable. Compatible with WPML.
- * Version:           1.1.0
- * Requires at least: 4.7
+ * Version:           1.1.1
+ * Requires at least: 6.0
  * Requires PHP:      7.4
- * Tested up to:      6.9
+ * Tested up to:      7.0
  * Author:            NuttTaro
  * Author URI:        https://nutttaro.com
  * License:           GPL v2 or later
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'WPTO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPTO_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPTO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'WPTO_VERSION', '1.1.0' );
+define( 'WPTO_VERSION', '1.1.1' );
 define( 'WPTO_META_KEY', '_wpto_order' );
 
 /**
@@ -73,7 +73,7 @@ class WP_Taxonomy_Order
 
 			wp_enqueue_style( 'wp-taxonomy-order-style', WPTO_PLUGIN_URL . '/assets/css/wp-taxonomy-order.min.css', array(), WPTO_VERSION );
 
-			wp_register_script( 'wp-taxonomy-order', WPTO_PLUGIN_URL . '/assets/js/wp-taxonomy-order.min.js', array( 'jquery-ui-sortable' ), WPTO_VERSION, true );
+			wp_register_script( 'wp-taxonomy-order', WPTO_PLUGIN_URL . '/assets/js/wp-taxonomy-order.min.js', array( 'jquery-ui-sortable' ), WPTO_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 			wp_enqueue_script( 'wp-taxonomy-order' );
 
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -434,16 +434,25 @@ class WP_Taxonomy_Order
 					'required'          => true,
 					'type'              => 'integer',
 					'sanitize_callback' => 'absint',
+					'validate_callback' => function ( $value ) {
+						return is_numeric( $value ) && (int) $value > 0;
+					},
 				),
 				'next_id'  => array(
 					'required'          => false,
 					'type'              => 'integer',
 					'sanitize_callback' => 'absint',
+					'validate_callback' => function ( $value ) {
+						return is_numeric( $value ) && (int) $value > 0;
+					},
 				),
 				'taxonomy' => array(
 					'required'          => true,
 					'type'              => 'string',
 					'sanitize_callback' => 'sanitize_text_field',
+					'validate_callback' => function ( $value ) {
+						return is_string( $value ) && taxonomy_exists( $value );
+					},
 				),
 			),
 		) );
@@ -459,6 +468,9 @@ class WP_Taxonomy_Order
 					'required'          => true,
 					'type'              => 'string',
 					'sanitize_callback' => 'sanitize_text_field',
+					'validate_callback' => function ( $value ) {
+						return is_string( $value ) && taxonomy_exists( $value );
+					},
 				),
 			),
 		) );

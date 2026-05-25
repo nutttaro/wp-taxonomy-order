@@ -2,9 +2,9 @@
 Contributors: nutttaro
 Donate link: https://www.buymeacoffee.com/nutttaro
 Tags: taxonomy, order
-Requires at least: 4.7
-Tested up to: 6.9
-Stable tag: 1.1.0
+Requires at least: 6.0
+Tested up to: 7.0
+Stable tag: 1.1.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,6 +47,16 @@ You can select taxonomy for enable order feature
 1. Drag and Drop for order taxonomy. It easy!
 
 == Changelog ==
+
+= 1.1.1 =
+* Tested up to WordPress 7.0
+* Fixed: Uninstall no longer deletes generic 'order' term meta that may belong to other plugins
+* Fixed: Renamed JS helper function from `wc_` prefix to `wpto_` to avoid collision with WooCommerce
+* Improved: Added error handling for AJAX reorder and reset requests
+* Improved: Added REST API argument validation callbacks
+* Improved: Multisite-aware uninstall cleans up all sites in a network
+* Improved: Script loading uses `defer` strategy on WordPress 6.3+
+* Updated: Minimum WordPress version raised to 6.0
 
 = 1.1.0 =
 * New: "Reset Order" button on taxonomy list pages to clear custom ordering

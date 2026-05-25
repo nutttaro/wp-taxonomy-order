@@ -16,7 +16,7 @@ jQuery( function( $ ) {
 
 	$( table_selector ).find( '.column-handle' ).show();
 
-	$.wc_add_missing_sort_handles = function() {
+	$.wpto_add_missing_sort_handles = function() {
 		var all_table_rows = $( table_selector ).find('tbody > tr');
 		var rows_with_handle = $( table_selector ).find('tbody > tr > td.column-handle').parent();
 		if ( all_table_rows.length !== rows_with_handle.length ) {
@@ -37,7 +37,7 @@ jQuery( function( $ ) {
 			options.data &&
 			( 0 <= options.data.indexOf( '_inline_edit' ) || 0 <= options.data.indexOf( 'add-tag' ) )
 		) {
-			$.wc_add_missing_sort_handles();
+			$.wpto_add_missing_sort_handles();
 			$( document.body ).trigger( 'init_tooltips' );
 		}
 	} );
@@ -121,7 +121,11 @@ jQuery( function( $ ) {
 						ui.item.find( '.check-column' ).find( '.spinner' ).remove();
 					}
 				}
-			);
+			).fail( function() {
+				ui.item.find( '.check-column input' ).show();
+				ui.item.find( '.check-column' ).find( '.spinner' ).remove();
+				$( table_selector ).sortable( 'cancel' );
+			});
 
 			// Fix cell colors
 			$( 'table.widefat tbody tr' ).each( function() {
@@ -155,7 +159,9 @@ jQuery( function( $ ) {
 			function() {
 				window.location.reload();
 			}
-		);
+		).fail( function() {
+			$button.prop( 'disabled', false ).next( '.spinner' ).remove();
+		});
 	});
 
 });
